@@ -243,72 +243,69 @@
 
     <script src="script.js"></script>
 
-    <script>
-        // სწორი პასუხების გასაღები
-        const answers = {
-            q1: 'a', // (2, -1)
-            q2: 'a', // 7
-            q3: 'b', // 1/a^4
-            q4: 'b', // 14
-            q5: 'a', // 10
-            q6: 'a', // 5pi
-            q7: 'c', // 1
-            q8: 'a', // 20
-            q9: 'b', // 3
-            q10: 'c' // union
-        };
+   <script src="script.js"></script>
 
-        function submitQuiz() {
-            let score = 0;
-            const total = 10;
-            const form = document.getElementById('quiz-form');
+<script>
+    const answers = {
+        q1: 'a', q2: 'a', q3: 'b', q4: 'b', q5: 'a',
+        q6: 'a', q7: 'c', q8: 'a', q9: 'b', q10: 'c'
+    };
 
-            // გადავამოწმოთ თითოეული კითხვა
-            for (let i = 1; i <= total; i++) {
-                const qName = 'q' + i;
-                const selected = form.elements[qName].value;
-                const correct = answers[qName];
-                
-                // ვიზუალური შეფერადება
-                const options = document.getElementsByName(qName);
-                
-                options.forEach(option => {
-                    const parent = option.parentElement; // label
-                    
-                    // გავასუფთაოთ ძველი სტილები
-                    parent.classList.remove('correct-answer', 'wrong-answer');
+    function submitQuiz() {
+        let score = 0;
+        const total = 10;
+        const form = document.getElementById('quiz-form');
 
-                    // თუ ეს ოპცია სწორია
-                    if (option.value === correct) {
-                        parent.classList.add('correct-answer');
-                    }
-                    
-                    // თუ მომხმარებელმა მონიშნა და არასწორია
-                    if (option.checked && option.value !== correct) {
-                        parent.classList.add('wrong-answer');
-                    }
-                });
-
-                if (selected === correct) {
-                    score++;
-                }
-            }
-
-            // შედეგის გამოჩენა
-            const resultBox = document.getElementById('result-box');
-            const scoreDisplay = document.getElementById('score-display');
-            const coinReward = document.getElementById('coin-reward');
-
-            resultBox.style.display = 'block';
-            scoreDisplay.innerText = `${score} / ${total}`;
+        // Check answers
+        for (let i = 1; i <= total; i++) {
+            const qName = 'q' + i;
+            const selected = form.elements[qName].value;
+            const correct = answers[qName];
             
-            // დავამატოთ Coins თუ ქულა 5-ზე მეტია
-            let coinsEarned = score * 5; 
-            coinReward.innerText = `💰 +${coinsEarned} Coins`;
-            
-            // ავიდეთ ზემოთ, რომ შედეგი გამოჩნდეს
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // Visual Styles
+            const options = document.getElementsByName(qName);
+            options.forEach(option => {
+                const parent = option.parentElement;
+                parent.classList.remove('correct-answer', 'wrong-answer');
+                if (option.value === correct) parent.classList.add('correct-answer');
+                if (option.checked && option.value !== correct) parent.classList.add('wrong-answer');
+            });
+
+            if (selected === correct) score++;
         }
-    </script>
+
+        // --- NEW LOGIC STARTS HERE ---
+        
+        const resultBox = document.getElementById('result-box');
+        const scoreDisplay = document.getElementById('score-display');
+        const coinReward = document.getElementById('coin-reward');
+
+        // Calculate Percentage
+        const percentage = (score / total) * 100;
+
+        let message = "";
+        
+        // Check if score is 90% or higher (9 or 10 points)
+        if (percentage >= 90) {
+            // Add 10 Coins
+            addCoins(10); 
+            message = "გილოცავ! შენ დაგერიცხა 💰 10 მონეტა!";
+            coinReward.style.color = "#fbbf24"; // Gold color
+        } else {
+            message = "მონეტების მისაღებად საჭიროა 90%+";
+            coinReward.style.color = "#cbd5e1"; // Grey color
+        }
+
+        // Show Results
+        resultBox.style.display = 'block';
+        scoreDisplay.innerText = `${score} / ${total} (${percentage}%)`;
+        coinReward.innerText = message;
+        
+        // Refresh the header to show new coin balance immediately
+        checkLoginState();
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
   </body>
 </html>
