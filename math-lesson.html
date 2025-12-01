@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ka">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>შეგირდი — მათემატიკის გაკვეთილი</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="icon"
+      href="./shegirdi-removebg-preview.png"
+      type="image/x-icon"
+    />
+    <style>
+      /* --- LESSON SPECIFIC STYLES --- */
+      .lesson-grid {
+        display: grid;
+        grid-template-columns: 2.5fr 1fr; /* Main content vs Sidebar */
+        gap: 30px;
+        align-items: start;
+      }
+
+      /* Video Container (16:9 Aspect Ratio) */
+      .video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 */
+        height: 0;
+        background: black;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        margin-bottom: 30px;
+      }
+
+      .video-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      /* Content Styling */
+      .lesson-content h1 {
+        font-size: 28px;
+        margin-bottom: 15px;
+      }
+      
+      .lesson-text {
+        background: white;
+        padding: 30px;
+        border-radius: 16px;
+        border: 1px solid #e2e8f0;
+        line-height: 1.8;
+        font-size: 16px;
+        color: #334155;
+      }
+
+      .formula-box {
+        background: #f1f5f9;
+        padding: 15px;
+        border-left: 4px solid var(--primary);
+        font-family: monospace;
+        font-size: 18px;
+        margin: 20px 0;
+        border-radius: 4px;
+      }
+
+      /* Sidebar Syllabus */
+      .syllabus-card {
+        background: white;
+        padding: 20px;
+        border-radius: 16px;
+        border: 1px solid #e2e8f0;
+        position: sticky;
+        top: 100px; /* Sticks when scrolling */
+      }
+
+      .syllabus-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px;
+        border-bottom: 1px solid #f1f5f9;
+        cursor: pointer;
+        transition: 0.2s;
+        color: var(--text-muted);
+        text-decoration: none;
+      }
+
+      .syllabus-item:hover {
+        background: #f8fafc;
+        color: var(--primary);
+      }
+
+      .syllabus-item.active {
+        background: #eff6ff;
+        color: var(--primary);
+        font-weight: 700;
+        border-radius: 8px;
+        border-bottom: none;
+      }
+
+      .check-icon {
+        width: 20px;
+        height: 20px;
+        border: 2px solid #cbd5e1;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        color: white;
+      }
+
+      .syllabus-item.completed .check-icon {
+        background: #22c55e;
+        border-color: #22c55e;
+      }
+
+      /* Mobile */
+      @media (max-width: 900px) {
+        .lesson-grid {
+          grid-template-columns: 1fr;
+        }
+        .syllabus-card {
+            position: relative;
+            top: 0;
+            order: 2; /* Move to bottom on mobile */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav-wrapper">
+        <a href="index.html" class="brand">
+          <img src="./shegirdi-removebg-preview.png" />შეგირდი
+        </a>
+        <nav>
+            <ul class="nav-links">
+              <li><a href="index.html">მთავარი</a></li>
+              <li><a href="./subjects.html" class="active">საგნები</a></li>
+              <li><a href="./tests.html">ტესტები</a></li>
+              <li><a href="./forum.html">ფორუმი</a></li>
+              <li><a href="./about.html">ჩვენ შესახებ</a></li>
+            </ul>
+          </nav>
+        <div class="nav-buttons">
+           <!-- Auto-filled by script.js -->
+           <a href="./auth.html" class="btn btn-outline">შესვლა</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container-wide section">
+      
+      <!-- Breadcrumb -->
+      <div style="margin-bottom: 20px; color: var(--text-muted); font-size: 14px;">
+        <a href="subjects.html" style="color: var(--text-muted); text-decoration: none;">საგნები</a> / 
+        <a href="#" style="color: var(--text-muted); text-decoration: none;">მათემატიკა</a> / 
+        <span style="color: var(--primary); font-weight: 600;">კვადრატული განტოლებები</span>
+      </div>
+
+      <div class="lesson-grid animate-up">
+        
+        <!-- LEFT COLUMN: Content -->
+        <div class="lesson-content">
+            <!-- Video -->
+            <div class="video-wrapper">
+                <!-- Embedding a random math video placeholder -->
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/ZBalWkadJwk?si=sample" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <div class="lesson-text">
+                <h1>გაკვეთილი 1: კვადრატული ფუნქცია</h1>
+                <p>კვადრატული ფუნქცია ეწოდება ფუნქციას, რომელიც მოიცემა შემდეგი ფორმულით:</p>
+                
+                <div class="formula-box">
+                    y = ax² + bx + c
+                </div>
+
+                <p>სადაც a, b და c ნამდვილი რიცხვებია, ხოლო a ≠ 0. ამ ფუნქციის გრაფიკი არის <strong>პარაბოლა</strong>.</p>
+                <br>
+                <h3>პარაბოლის წვეროს კოორდინატები</h3>
+                <p>პარაბოლის წვეროს აბსცისის (x₀) მოსაძებნად ვიყენებთ ფორმულას:</p>
+                <div class="formula-box">
+                    x₀ = -b / 2a
+                </div>
+                <p>ხოლო ორდინატის (y₀) საპოვნელად, ჩავსვამთ მიღებულ x-ს განტოლებაში.</p>
+
+                <br><hr><br>
+                
+                <div style="background: #fffbeb; padding: 20px; border-radius: 10px; border: 1px solid #fcd34d;">
+                    <strong>💡 რჩევა:</strong> ტესტის დაწყებამდე კარგად გაიაზრეთ ვიეტას თეორემა და დისკრიმინანტის ფორმულა.
+                </div>
+
+                <!-- Action Button -->
+                <button onclick="finishLesson()" class="btn btn-primary" style="width: 100%; margin-top: 30px; padding: 18px; font-size: 18px;">
+                    ✅ გაკვეთილის დასრულება (+5 Coins)
+                </button>
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN: Syllabus -->
+        <aside class="syllabus-card">
+            <h3 style="margin-bottom: 20px;">კურსის სილაბუსი</h3>
+            
+            <div class="syllabus-item completed">
+                <div class="check-icon">✓</div>
+                <span>შესავალი</span>
+            </div>
+            
+            <div class="syllabus-item active">
+                <div class="check-icon"></div>
+                <span>1. კვადრატული ფუნქცია</span>
+            </div>
+
+            <div class="syllabus-item">
+                <div class="check-icon"></div>
+                <span>2. დისკრიმინანტი</span>
+            </div>
+
+            <div class="syllabus-item">
+                <div class="check-icon"></div>
+                <span>3. ვიეტას თეორემა</span>
+            </div>
+
+            <div class="syllabus-item">
+                <div class="check-icon"></div>
+                <span>4. შემაჯამებელი ტესტი</span>
+            </div>
+        </aside>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="container">
+          <p>Shegirdi © 2025. ყველა უფლება დაცულია.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <script>
+        // Check auth on load
+        document.addEventListener("DOMContentLoaded", function () {
+            const isLoggedIn = localStorage.getItem("shegirdi_user_logged_in");
+            if(isLoggedIn !== "true") {
+                // If not logged in, redirect to login
+                alert("გაკვეთილის სანახავად გაიარეთ ავტორიზაცია");
+                window.location.href = "auth.html";
+            }
+        });
+
+        function finishLesson() {
+            const btn = document.querySelector('.lesson-text .btn');
+            btn.innerText = "მიმდინარეობს...";
+            btn.disabled = true;
+
+            // 1. Add 5 coins for reading
+            addCoins(5);
+
+            // 2. Simulate delay then go to test
+            setTimeout(() => {
+                alert("გილოცავ! შენ დაგერიცხა 5 მონეტა. დროა შეამოწმო ცოდნა.");
+                window.location.href = "math-test.html";
+            }, 1000);
+        }
+    </script>
+  </body>
+</html>
