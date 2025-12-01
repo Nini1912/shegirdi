@@ -30,6 +30,19 @@
         justify-content: center;
         gap: 6px;
       }
+      
+      .avatar-large {
+        width: 80px;
+        height: 80px;
+        background: var(--primary);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        font-weight: 700;
+      }
 
       /* --- STATS GRID --- */
       .stat-grid {
@@ -49,12 +62,22 @@
         box-shadow: var(--shadow);
         border: 1px solid #e2e8f0;
       }
+      
+      .stat-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+      }
 
-      /* --- NEW HORIZONTAL PROGRESS ROWS --- */
+      /* --- PROGRESS ROWS --- */
       .progress-list {
         display: flex;
         flex-direction: column;
-        gap: 20px; /* Space between rows */
+        gap: 20px; 
       }
 
       .progress-row {
@@ -63,8 +86,6 @@
         border-radius: var(--radius);
         box-shadow: var(--shadow);
         border: 1px solid #e2e8f0;
-
-        /* Horizontal Layout Grid: Text | Bar | Action */
         display: grid;
         grid-template-columns: 250px 1fr auto;
         align-items: center;
@@ -77,7 +98,6 @@
         border-color: var(--primary);
       }
 
-      /* Style the text section */
       .prog-info h3 {
         margin-bottom: 4px;
         font-size: 18px;
@@ -88,17 +108,23 @@
         margin: 0;
       }
 
-      /* Style the bar section */
       .prog-bar-container {
         width: 100%;
       }
+      
       .progress-container {
         margin-top: 0;
         height: 12px;
         background: #f1f5f9;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      
+      .progress-fill {
+        height: 100%;
+        border-radius: 10px;
       }
 
-      /* Style the action section (Right side) */
       .prog-action {
         display: flex;
         align-items: center;
@@ -112,11 +138,22 @@
         min-width: 50px;
         text-align: right;
       }
+      
+      .subscription-badge {
+        background: linear-gradient(135deg, #f59e0b, #d97706);
+        color: white;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
 
-      /* Mobile Responsive: Stack them if screen is small */
+      /* Mobile Responsive */
       @media (max-width: 900px) {
         .progress-row {
-          grid-template-columns: 1fr; /* Stack vertically */
+          grid-template-columns: 1fr; 
           gap: 20px;
           text-align: center;
         }
@@ -155,14 +192,13 @@
           </ul>
         </nav>
         <div class="nav-buttons">
+          <!-- These will be auto-replaced by checkLoginState() in script.js -->
           <a href="#" class="btn btn-outline" onclick="logout()">გასვლა</a>
-          >
         </div>
       </div>
     </header>
 
     <main class="container-wide section">
-      <!-- Used container-wide for better fit -->
 
       <!-- DASHBOARD HEADER -->
       <div class="dashboard-header animate-up">
@@ -182,6 +218,8 @@
 
       <!-- STATS ROW -->
       <div class="stat-grid animate-up delay-1">
+        
+        <!-- BALANCE CARD (Updated with ID) -->
         <div class="stat-card">
           <div class="stat-icon" style="background: #fffbeb; color: #d97706">
             💰
@@ -197,7 +235,9 @@
             >
               ბალანსი
             </div>
+            <!-- ID added here for script.js to update -->
             <div
+              id="profile-coin-display"
               style="
                 font-size: 26px;
                 font-weight: 800;
@@ -205,11 +245,12 @@
                 line-height: 1;
               "
             >
-              450
+              0
             </div>
           </div>
         </div>
 
+        <!-- STREAK CARD -->
         <div class="stat-card">
           <div class="stat-icon" style="background: #f0fdf4; color: #16a34a">
             🔥
@@ -238,8 +279,9 @@
           </div>
         </div>
 
+        <!-- TESTS CARD -->
         <div class="stat-card">
-          <div class="stat-icon">📝</div>
+          <div class="stat-icon" style="background: #eff6ff; color: var(--primary);">📝</div>
           <div>
             <div
               style="
@@ -271,20 +313,17 @@
       <div class="progress-list">
         <!-- Math Row -->
         <div class="progress-row animate-up delay-2">
-          <!-- 1. Text Info -->
           <div class="prog-info">
             <h3>მათემატიკა</h3>
             <p>ბოლო: ტრიგონომეტრიული წრე</p>
           </div>
 
-          <!-- 2. Progress Bar -->
           <div class="prog-bar-container">
             <div class="progress-container">
-              <div class="progress-fill" style="width: 75%"></div>
+              <div class="progress-fill" style="width: 75%; background: var(--primary);"></div>
             </div>
           </div>
 
-          <!-- 3. Action / Percentage -->
           <div class="prog-action">
             <span class="percent-badge" style="color: var(--primary)">75%</span>
             <button class="btn btn-primary">გაგრძელება</button>
@@ -336,14 +375,14 @@
         </div>
       </div>
     </main>
-    <!-- Bottom of index.html -->
+    
     <footer>
       <div class="container">
         <p>Shegirdi © 2025. ყველა უფლება დაცულია.</p>
       </div>
     </footer>
 
+    <!-- Must be included for the coin logic to work -->
     <script src="script.js"></script>
-    <!-- ADD THIS LINE -->
   </body>
 </html>
