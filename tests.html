@@ -14,9 +14,9 @@
   <body>
     <header>
       <div class="container nav-wrapper">
-        <a href="index.html" class="brand"
-          ><img src="./shegirdi-removebg-preview.png" />შეგირდი</a
-        >
+        <a href="index.html" class="brand">
+          <img src="./shegirdi-removebg-preview.png" />შეგირდი
+        </a>
         <nav>
           <ul class="nav-links">
             <li><a href="index.html">მთავარი</a></li>
@@ -76,13 +76,18 @@
 
       <h2>ტესტბანკები</h2>
       <div class="grid" style="margin-bottom: 80px">
+        
+        <!-- Math Card (UPDATED LINK) -->
         <div class="card animate-up delay-1">
           <h3>მათემატიკა: 2024</h3>
           <p style="color: var(--text-muted)">სრული სიმულაცია.</p>
-          <button class="btn btn-primary" style="margin-top: auto">
+          <!-- I changed the button to an <a> tag linking to the new file -->
+          <a href="math-test.html" class="btn btn-primary" style="margin-top: auto; text-align: center; text-decoration: none;">
             დაწყება
-          </button>
+          </a>
         </div>
+
+        <!-- English Card -->
         <div class="card animate-up delay-2">
           <h3>ინგლისური: Vocab</h3>
           <p style="color: var(--text-muted)">სიტყვების მარაგის შემოწმება.</p>
@@ -90,6 +95,8 @@
             დაწყება
           </button>
         </div>
+
+        <!-- Skills Card -->
         <div class="card animate-up delay-3">
           <h3>უნარები: ლოგიკა</h3>
           <p style="color: var(--text-muted)">ვერბალური და მათემატიკური.</p>
@@ -140,17 +147,13 @@
         </div>
       </div>
     </main>
-    <!-- Bottom of index.html -->
-  <footer>
-    <div class="container">
-      <p>Shegirdi © 2025. ყველა უფლება დაცულია.</p>
-    </div>
-  </footer>
 
-  <script src="script.js"></script> <!-- ADD THIS LINE -->
-</body>
-</html>
+    <footer>
+      <div class="container">
+        <p>Shegirdi © 2025. ყველა უფლება დაცულია.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>
-
-
