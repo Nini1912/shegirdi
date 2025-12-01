@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ka">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shegirdi — შესვლა</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="icon"
+      href="./shegirdi-removebg-preview.png"
+      type="image/x-icon"
+    />
+  </head>
+  <body style="background: white; display: block">
+    <div class="auth-wrapper">
+      <!-- Left Side: Visuals -->
+      <div class="auth-image-side animate-up">
+        <div style="position: relative; z-index: 2">
+          <h1 style="color: white; font-size: 48px; margin-bottom: 20px">
+            მოემზადე მომავლისთვის.
+          </h1>
+          <p style="font-size: 20px; opacity: 0.9">
+            შეგირდი გეხმარება ეროვნული გამოცდების წარმატებით ჩაბარებაში.
+          </p>
+          <br />
+          <div style="display: flex; gap: 15px; margin-top: 20px">
+            <div
+              style="
+                background: rgba(255, 255, 255, 0.2);
+                padding: 10px 20px;
+                border-radius: 8px;
+              "
+            >
+              📚 200+ გაკვეთილი
+            </div>
+            <div
+              style="
+                background: rgba(255, 255, 255, 0.2);
+                padding: 10px 20px;
+                border-radius: 8px;
+              "
+            >
+              👥 5k+ მოსწავლე
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Side: Form -->
+      <div class="auth-form-side">
+        <div class="auth-form-container animate-up delay-1">
+          <!-- Logo Link -->
+          <a href="index.html" class="brand" style="margin-bottom: 40px">
+            <img
+              src="./shegirdi-removebg-preview.png"
+              alt="Logo"
+              style="height: 40px; width: auto"
+            />
+            შეგირდი
+          </a>
+
+          <h2 style="text-align: left; margin-bottom: 10px">
+            მოგესალმებით! 👋
+          </h2>
+          <p style="color: var(--text-muted); margin-bottom: 30px">
+            შეიყვანეთ თქვენი მონაცემები სისტემაში შესასვლელად.
+          </p>
+
+          <!-- Login Form -->
+          <form id="loginForm">
+            <div class="form-group">
+              <label
+                style="
+                  display: block;
+                  margin-bottom: 8px;
+                  font-weight: 600;
+                  color: #334155;
+                "
+                >ელ.ფოსტა</label
+              >
+              <input
+                type="email"
+                placeholder="name@example.com"
+                class="form-input"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label
+                style="
+                  display: block;
+                  margin-bottom: 8px;
+                  font-weight: 600;
+                  color: #334155;
+                "
+                >პაროლი</label
+              >
+              <input
+                type="password"
+                placeholder="••••••••"
+                class="form-input"
+                required
+              />
+            </div>
+
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 24px;
+              "
+            >
+              <label
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 8px;
+                  font-size: 14px;
+                  color: var(--text-muted);
+                "
+              >
+                <input type="checkbox" /> დამახსოვრება
+              </label>
+              <a
+                href="#"
+                style="
+                  font-size: 14px;
+                  color: var(--primary);
+                  text-decoration: none;
+                  font-weight: 600;
+                "
+                >დაგავიწყდა?</a
+              >
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-primary"
+              style="width: 100%; padding: 16px; font-size: 16px"
+            >
+              შესვლა
+            </button>
+          </form>
+
+          <div
+            style="
+              margin-top: 30px;
+              text-align: center;
+              border-top: 1px solid #e2e8f0;
+              padding-top: 20px;
+            "
+          >
+            <p style="color: var(--text-muted)">
+              ჯერ არ ხარ დარეგისტრირებული?
+              <a
+                href="#"
+                style="
+                  color: var(--primary);
+                  font-weight: 700;
+                  text-decoration: none;
+                "
+                >შექმენი ანგარიში</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   
+<script src="script.js"></script> <!-- Link the new file -->
+
+<script>
+  document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Stop page refresh
+    
+    const btn = this.querySelector('button');
+    btn.innerText = "მიმდინარეობს...";
+    btn.style.opacity = "0.7";
+    
+    // Call the function from script.js to save login state
+    loginUser(); 
+  });
+</script>
+</body>
+</html>
+  </body>
+</html>

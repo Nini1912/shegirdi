@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ka">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>შეგირდი — პროფილი</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="icon"
+      href="./shegirdi-removebg-preview.png"
+      type="image/x-icon"
+    />
+    <style>
+      /* --- DASHBOARD HEADER --- */
+      .dashboard-header {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        padding: 30px;
+        background: white;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        margin-bottom: 30px;
+        border: 1px solid #e2e8f0;
+      }
+
+      .user-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+      }
+
+      /* --- STATS GRID --- */
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+        margin-bottom: 50px;
+      }
+
+      .stat-card {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 24px;
+        background: white;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        border: 1px solid #e2e8f0;
+      }
+
+      /* --- NEW HORIZONTAL PROGRESS ROWS --- */
+      .progress-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px; /* Space between rows */
+      }
+
+      .progress-row {
+        background: white;
+        padding: 24px 32px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        border: 1px solid #e2e8f0;
+
+        /* Horizontal Layout Grid: Text | Bar | Action */
+        display: grid;
+        grid-template-columns: 250px 1fr auto;
+        align-items: center;
+        gap: 40px;
+        transition: transform 0.2s;
+      }
+
+      .progress-row:hover {
+        transform: translateX(5px);
+        border-color: var(--primary);
+      }
+
+      /* Style the text section */
+      .prog-info h3 {
+        margin-bottom: 4px;
+        font-size: 18px;
+      }
+      .prog-info p {
+        color: var(--text-muted);
+        font-size: 14px;
+        margin: 0;
+      }
+
+      /* Style the bar section */
+      .prog-bar-container {
+        width: 100%;
+      }
+      .progress-container {
+        margin-top: 0;
+        height: 12px;
+        background: #f1f5f9;
+      }
+
+      /* Style the action section (Right side) */
+      .prog-action {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .percent-badge {
+        font-weight: 800;
+        font-size: 16px;
+        color: var(--text-main);
+        min-width: 50px;
+        text-align: right;
+      }
+
+      /* Mobile Responsive: Stack them if screen is small */
+      @media (max-width: 900px) {
+        .progress-row {
+          grid-template-columns: 1fr; /* Stack vertically */
+          gap: 20px;
+          text-align: center;
+        }
+        .prog-action {
+          flex-direction: column;
+          width: 100%;
+        }
+        .prog-action .btn {
+          width: 100%;
+        }
+        .percent-badge {
+          text-align: center;
+          margin-bottom: 5px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav-wrapper">
+        <a href="index.html" class="brand">
+          <img
+            src="./shegirdi-removebg-preview.png"
+            alt="Logo"
+            style="height: 40px; width: auto"
+          />
+          შეგირდი
+        </a>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html">მთავარი</a></li>
+            <li><a href="subjects.html">საგნები</a></li>
+            <li><a href="tests.html">ტესტები</a></li>
+            <li><a href="forum.html">ფორუმი</a></li>
+            <li><a href="about.html">ჩვენ შესახებ</a></li>
+          </ul>
+        </nav>
+        <div class="nav-buttons">
+          <a href="#" class="btn btn-outline" onclick="logout()">გასვლა</a>
+          >
+        </div>
+      </div>
+    </header>
+
+    <main class="container-wide section">
+      <!-- Used container-wide for better fit -->
+
+      <!-- DASHBOARD HEADER -->
+      <div class="dashboard-header animate-up">
+        <div class="avatar-large">G</div>
+        <div class="user-info">
+          <h1 style="font-size: 26px; margin: 0; line-height: 1">
+            გამარჯობა, გიორგი! 👋
+          </h1>
+          <div style="display: flex; align-items: center; gap: 12px">
+            <span style="color: var(--text-muted); font-size: 14px"
+              >აბიტურიენტი</span
+            >
+            <span class="subscription-badge">Premium Plan</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STATS ROW -->
+      <div class="stat-grid animate-up delay-1">
+        <div class="stat-card">
+          <div class="stat-icon" style="background: #fffbeb; color: #d97706">
+            💰
+          </div>
+          <div>
+            <div
+              style="
+                font-size: 13px;
+                color: var(--text-muted);
+                font-weight: 700;
+                text-transform: uppercase;
+              "
+            >
+              ბალანსი
+            </div>
+            <div
+              style="
+                font-size: 26px;
+                font-weight: 800;
+                color: var(--text-main);
+                line-height: 1;
+              "
+            >
+              450
+            </div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon" style="background: #f0fdf4; color: #16a34a">
+            🔥
+          </div>
+          <div>
+            <div
+              style="
+                font-size: 13px;
+                color: var(--text-muted);
+                font-weight: 700;
+                text-transform: uppercase;
+              "
+            >
+              Streak
+            </div>
+            <div
+              style="
+                font-size: 26px;
+                font-weight: 800;
+                color: var(--text-main);
+                line-height: 1;
+              "
+            >
+              12 დღე
+            </div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">📝</div>
+          <div>
+            <div
+              style="
+                font-size: 13px;
+                color: var(--text-muted);
+                font-weight: 700;
+                text-transform: uppercase;
+              "
+            >
+              ტესტები
+            </div>
+            <div
+              style="
+                font-size: 26px;
+                font-weight: 800;
+                color: var(--text-main);
+                line-height: 1;
+              "
+            >
+              24
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HORIZONTAL PROGRESS LIST -->
+      <h2 class="animate-up delay-2">ჩემი პროგრესი</h2>
+
+      <div class="progress-list">
+        <!-- Math Row -->
+        <div class="progress-row animate-up delay-2">
+          <!-- 1. Text Info -->
+          <div class="prog-info">
+            <h3>მათემატიკა</h3>
+            <p>ბოლო: ტრიგონომეტრიული წრე</p>
+          </div>
+
+          <!-- 2. Progress Bar -->
+          <div class="prog-bar-container">
+            <div class="progress-container">
+              <div class="progress-fill" style="width: 75%"></div>
+            </div>
+          </div>
+
+          <!-- 3. Action / Percentage -->
+          <div class="prog-action">
+            <span class="percent-badge" style="color: var(--primary)">75%</span>
+            <button class="btn btn-primary">გაგრძელება</button>
+          </div>
+        </div>
+
+        <!-- English Row -->
+        <div class="progress-row animate-up delay-3">
+          <div class="prog-info">
+            <h3>ინგლისური</h3>
+            <p>ბოლო: Phrasal Verbs & Idioms</p>
+          </div>
+
+          <div class="prog-bar-container">
+            <div class="progress-container">
+              <div
+                class="progress-fill"
+                style="width: 40%; background: #f59e0b"
+              ></div>
+            </div>
+          </div>
+
+          <div class="prog-action">
+            <span class="percent-badge" style="color: #d97706">40%</span>
+            <button class="btn btn-outline">გაგრძელება</button>
+          </div>
+        </div>
+
+        <!-- History Row -->
+        <div class="progress-row animate-up delay-3">
+          <div class="prog-info">
+            <h3>ისტორია</h3>
+            <p>ბოლო: საქართველოს გაერთიანება</p>
+          </div>
+
+          <div class="prog-bar-container">
+            <div class="progress-container">
+              <div
+                class="progress-fill"
+                style="width: 10%; background: #ef4444"
+              ></div>
+            </div>
+          </div>
+
+          <div class="prog-action">
+            <span class="percent-badge" style="color: #dc2626">10%</span>
+            <button class="btn btn-outline">გაგრძელება</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Bottom of index.html -->
+    <footer>
+      <div class="container">
+        <p>Shegirdi © 2025. ყველა უფლება დაცულია.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <!-- ADD THIS LINE -->
+  </body>
+</html>

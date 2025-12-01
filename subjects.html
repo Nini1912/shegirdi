@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ka">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>შეგირდი — საგნები</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="icon"
+      href="/shegirdi-removebg-preview.png"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container nav-wrapper">
+        <a href="index.html" class="brand"
+          ><img src="./shegirdi-removebg-preview.png" />შეგირდი</a
+        >
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html">მთავარი</a></li>
+            <li><a href="./subjects.html" class="active">საგნები</a></li>
+            <li><a href="./tests.html">ტესტები</a></li>
+            <li><a href="./forum.html">ფორუმი</a></li>
+            <li><a href="./about.html">ჩვენ შესახებ</a></li>
+          </ul>
+        </nav>
+        <div class="nav-buttons">
+          <a href="./auth.html" class="btn btn-outline">შესვლა</a>
+          <a href="./auth.html" class="btn btn-primary">რეგისტრაცია</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container-wide section">
+      <div style="text-align: center; margin-bottom: 60px" class="animate-up">
+        <h1>საგნების კატალოგი</h1>
+        <p style="color: var(--text-muted); font-size: 18px">
+          აირჩიე მიმართულება და დაიწყე მეცადინეობა დღესვე.
+        </p>
+      </div>
+
+      <!-- Math -->
+      <div class="card-row animate-up delay-1">
+        <img
+          src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=600&q=80"
+          class="card-row-img"
+          alt="Math"
+        />
+        <div class="card-row-content">
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 10px;
+            "
+          >
+            <h3>მათემატიკა</h3>
+            <span class="tag">პოპულარული</span>
+          </div>
+          <p style="color: var(--text-muted); margin-bottom: 20px; flex: 1">
+            სრული კურსი: ალგებრა, გეომეტრია და მონაცემთა ანალიზი. მოიცავს 200+
+            ვიდეო გაკვეთილს და 50 ტესტბანკს.
+          </p>
+          <div style="display: flex; gap: 15px">
+            <a href="#" class="btn btn-primary">კურსის დაწყება</a>
+            <a href="#" class="btn btn-outline">სილაბუსი</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Georgian -->
+      <div class="card-row animate-up delay-2">
+        <img
+          src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=600&q=80"
+          class="card-row-img"
+          alt="Geo"
+        />
+        <div class="card-row-content">
+          <h3>ქართული ენა და ლიტერატურა</h3>
+          <p style="color: var(--text-muted); margin-bottom: 20px; flex: 1">
+            მხატვრული ტექსტების ანალიზი, ესეს წერის ტექნიკა და გრამატიკული
+            ნაწილი.
+          </p>
+          <div style="display: flex; gap: 15px">
+            <a href="#" class="btn btn-primary">კურსის დაწყება</a>
+            <a href="#" class="btn btn-outline">სილაბუსი</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- English -->
+      <div class="card-row animate-up delay-3">
+        <img
+          src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600&q=80"
+          class="card-row-img"
+          alt="Eng"
+        />
+        <div class="card-row-content">
+          <h3>ინგლისური ენა</h3>
+          <p style="color: var(--text-muted); margin-bottom: 20px; flex: 1">
+            Listening, Reading, Writing და Speaking. B2 დონის სრული დაფარვა.
+          </p>
+          <div style="display: flex; gap: 15px">
+            <a href="#" class="btn btn-primary">კურსის დაწყება</a>
+            <a href="#" class="btn btn-outline">სილაბუსი</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- History -->
+      <div class="card-row animate-up delay-1">
+        <img
+          src="https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&w=600&q=80"
+          class="card-row-img"
+          alt="History"
+        />
+        <div class="card-row-content">
+          <h3>ისტორია</h3>
+          <p style="color: var(--text-muted); margin-bottom: 20px; flex: 1">
+            საქართველოს ისტორია უძველესი დროიდან დღემდე, მსოფლიო ისტორიის
+            პარალელებით. რუკებთან მუშაობა.
+          </p>
+          <div style="display: flex; gap: 15px">
+            <a href="#" class="btn btn-primary">კურსის დაწყება</a>
+            <a href="#" class="btn btn-outline">სილაბუსი</a>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Bottom of index.html -->
+  <footer>
+    <div class="container">
+      <p>Shegirdi © 2025. ყველა უფლება დაცულია.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script> <!-- ADD THIS LINE -->
+</body>
+</html>
+  </body>
+</html>

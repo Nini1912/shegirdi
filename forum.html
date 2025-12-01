@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ka">
+  <head>
+    <meta charset="UTF-8" />
+    <title>შეგირდი — ფორუმი</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link
+      rel="icon"
+      href="./shegirdi-removebg-preview.png"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container nav-wrapper">
+        <a href="index.html" class="brand"
+          ><img src="./shegirdi-removebg-preview.png" />შეგირდი</a
+        >
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html">მთავარი</a></li>
+            <li><a href="./subjects.html">საგნები</a></li>
+            <li><a href="./tests.html">ტესტები</a></li>
+            <li><a href="./forum.html" class="active">ფორუმი</a></li>
+            <li><a href="./about.html">ჩვენ შესახებ</a></li>
+          </ul>
+        </nav>
+        <div class="nav-buttons">
+          <a href="./auth.html" class="btn btn-outline">შესვლა</a>
+          <a href="./auth.html" class="btn btn-primary">რეგისტრაცია</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container section">
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 40px;
+        "
+      >
+        <h1>დისკუსიები</h1>
+        <button class="btn btn-primary">+ ახალი თემა</button>
+      </div>
+
+      <!-- Forum List -->
+      <div style="display: flex; flex-direction: column; gap: 15px">
+        <div
+          class="card animate-up delay-1"
+          style="
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+          "
+        >
+          <div>
+            <h3 style="margin-bottom: 5px; font-size: 18px">
+              მათემატიკა: ტრიგონომეტრია ვერ გავიგე
+            </h3>
+            <p style="font-size: 14px; color: var(--text-muted)">
+              ავტორი: გიორგი • 2 საათის წინ
+            </p>
+          </div>
+          <div class="tag">5 პასუხი</div>
+        </div>
+
+        <div
+          class="card animate-up delay-2"
+          style="
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+          "
+        >
+          <div>
+            <h3 style="margin-bottom: 5px; font-size: 18px">
+              როდის იწყება რეგისტრაცია 2025?
+            </h3>
+            <p style="font-size: 14px; color: var(--text-muted)">
+              ავტორი: მარიამი • 5 საათის წინ
+            </p>
+          </div>
+          <div class="tag">12 პასუხი</div>
+        </div>
+
+        <div
+          class="card animate-up delay-3"
+          style="
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+          "
+        >
+          <div>
+            <h3 style="margin-bottom: 5px; font-size: 18px">
+              ვეფხისტყაოსნის შინაარსი მოკლედ
+            </h3>
+            <p style="font-size: 14px; color: var(--text-muted)">
+              ავტორი: ნიკა • 1 დღის წინ
+            </p>
+          </div>
+          <div class="tag">8 პასუხი</div>
+        </div>
+      </div>
+    </main>
+    <!-- Bottom of index.html -->
+  <footer>
+    <div class="container">
+      <p>Shegirdi © 2025. ყველა უფლება დაცულია.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script> <!-- ADD THIS LINE -->
+</body>
+</html>
+  </body>
+</html>
