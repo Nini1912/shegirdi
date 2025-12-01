@@ -82,27 +82,36 @@
           <h3>მათემატიკა: 2024</h3>
           <p style="color: var(--text-muted)">სრული სიმულაცია.</p>
           <!-- I changed the button to an <a> tag linking to the new file -->
-          <a href="math-test.html" class="btn btn-primary" style="margin-top: auto; text-align: center; text-decoration: none;">
-            დაწყება
-          </a>
+          <!-- OLD LINE: <a href="math-test.html" ... > -->
+
+<!-- NEW LINE (Uses the requireAuth function): -->
+<button onclick="requireAuth('math-test.html')" class="btn btn-primary" style="width: 100%; margin-top: auto;">
+  დაწყება
+</button>
         </div>
 
         <!-- English Card -->
         <div class="card animate-up delay-2">
           <h3>ინგლისური: Vocab</h3>
           <p style="color: var(--text-muted)">სიტყვების მარაგის შემოწმება.</p>
-          <button class="btn btn-primary" style="margin-top: auto">
-            დაწყება
-          </button>
+          <!-- OLD LINE: <a href="math-test.html" ... > -->
+
+<!-- NEW LINE (Uses the requireAuth function): -->
+<button onclick="requireAuth('math-test.html')" class="btn btn-primary" style="width: 100%; margin-top: auto;">
+  დაწყება
+</button>
         </div>
 
         <!-- Skills Card -->
         <div class="card animate-up delay-3">
           <h3>უნარები: ლოგიკა</h3>
           <p style="color: var(--text-muted)">ვერბალური და მათემატიკური.</p>
-          <button class="btn btn-primary" style="margin-top: auto">
-            დაწყება
-          </button>
+          <!-- OLD LINE: <a href="math-test.html" ... > -->
+
+<!-- NEW LINE (Uses the requireAuth function): -->
+<button onclick="requireAuth('math-test.html')" class="btn btn-primary" style="width: 100%; margin-top: auto;">
+  დაწყება
+</button>
         </div>
       </div>
 
@@ -157,3 +166,4 @@
     <script src="script.js"></script>
   </body>
 </html>
+
