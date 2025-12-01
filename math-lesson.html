@@ -196,8 +196,8 @@
                 </div>
 
                 <!-- Action Button -->
-                <button onclick="finishLesson()" class="btn btn-primary" style="width: 100%; margin-top: 30px; padding: 18px; font-size: 18px;">
-                    ✅ გაკვეთილის დასრულება (+5 Coins)
+                <button class="btn btn-primary" style="width: 100%; margin-top: 30px; padding: 18px; font-size: 18px;">
+                    ✅ გაკვეთილის დასრულება
                 </button>
             </div>
         </div>
@@ -253,21 +253,6 @@
                 window.location.href = "auth.html";
             }
         });
-
-        function finishLesson() {
-            const btn = document.querySelector('.lesson-text .btn');
-            btn.innerText = "მიმდინარეობს...";
-            btn.disabled = true;
-
-            // 1. Add 5 coins for reading
-            addCoins(5);
-
-            // 2. Simulate delay then go to test
-            setTimeout(() => {
-                alert("გილოცავ! შენ დაგერიცხა 5 მონეტა. დროა შეამოწმო ცოდნა.");
-                window.location.href = "math-test.html";
-            }, 1000);
-        }
     </script>
   </body>
 </html>
