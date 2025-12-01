@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>შეგირდი — მათემატიკის გაკვეთილი</title>
+    <title>შეგირდი — მათემატიკის ტესტი</title>
     <link rel="stylesheet" href="./style.css" />
     <link
       rel="icon"
@@ -11,106 +11,70 @@
       type="image/x-icon"
     />
     <style>
-      /* --- LESSON SPECIFIC STYLES --- */
-      .lesson-grid {
-        display: grid;
-        grid-template-columns: 2.5fr 1fr; /* Main content vs Sidebar */
-        gap: 30px;
-        align-items: start;
+      /* სპეციალური სტილები ტესტისთვის */
+      .quiz-container {
+        max-width: 800px;
+        margin: 0 auto;
       }
-
-      /* Content Styling */
-      .lesson-content h1 {
-        font-size: 32px;
-        margin-bottom: 20px;
-        color: var(--primary-dark);
-      }
-      
-      .lesson-text {
+      .question-card {
         background: white;
-        padding: 40px; /* Increased padding for better reading experience */
-        border-radius: 16px;
         border: 1px solid #e2e8f0;
-        line-height: 1.8;
-        font-size: 18px; /* Slightly larger text for reading */
-        color: #334155;
+        border-radius: 16px;
+        padding: 25px;
+        margin-bottom: 20px;
         box-shadow: var(--shadow);
       }
-
-      .formula-box {
-        background: #f1f5f9;
-        padding: 20px;
-        border-left: 5px solid var(--primary);
-        font-family: monospace;
-        font-size: 20px;
-        margin: 25px 0;
-        border-radius: 4px;
+      .question-title {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 15px;
         color: var(--text-main);
       }
-
-      /* Sidebar Syllabus */
-      .syllabus-card {
-        background: white;
-        padding: 20px;
-        border-radius: 16px;
-        border: 1px solid #e2e8f0;
-        position: sticky;
-        top: 100px; /* Sticks when scrolling */
-        box-shadow: var(--shadow);
-      }
-
-      .syllabus-item {
-        display: flex;
-        align-items: center;
+      .options-grid {
+        display: grid;
+        grid-template-columns: 1fr;
         gap: 10px;
-        padding: 12px;
-        border-bottom: 1px solid #f1f5f9;
-        cursor: pointer;
-        transition: 0.2s;
-        color: var(--text-muted);
-        text-decoration: none;
       }
-
-      .syllabus-item:hover {
-        background: #f8fafc;
-        color: var(--primary);
-      }
-
-      .syllabus-item.active {
-        background: #eff6ff;
-        color: var(--primary);
-        font-weight: 700;
-        border-radius: 8px;
-        border-bottom: none;
-      }
-
-      .check-icon {
-        width: 20px;
-        height: 20px;
-        border: 2px solid #cbd5e1;
-        border-radius: 50%;
+      .option-label {
         display: flex;
         align-items: center;
-        justify-content: center;
-        font-size: 12px;
+        padding: 12px 16px;
+        border: 2px solid #e2e8f0;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .option-label:hover {
+        background: #f8fafc;
+        border-color: var(--secondary);
+      }
+      /* როცა მონიშნავს ინფუთს */
+      input[type="radio"] {
+        margin-right: 10px;
+        accent-color: var(--primary);
+        transform: scale(1.2);
+      }
+      
+      /* შედეგების სტილები */
+      .correct-answer {
+        border-color: #22c55e !important;
+        background-color: #f0fdf4 !important;
+        color: #15803d;
+      }
+      .wrong-answer {
+        border-color: #ef4444 !important;
+        background-color: #fef2f2 !important;
+        color: #b91c1c;
+      }
+      
+      #result-box {
+        display: none; /* თავიდან დამალულია */
+        text-align: center;
+        padding: 30px;
+        background: var(--primary-dark);
         color: white;
-      }
-
-      .syllabus-item.completed .check-icon {
-        background: #22c55e;
-        border-color: #22c55e;
-      }
-
-      /* Mobile */
-      @media (max-width: 900px) {
-        .lesson-grid {
-          grid-template-columns: 1fr;
-        }
-        .syllabus-card {
-            position: relative;
-            top: 0;
-            order: 2; /* Move to bottom on mobile */
-        }
+        border-radius: 16px;
+        margin-bottom: 30px;
       }
     </style>
   </head>
@@ -121,102 +85,154 @@
           <img src="./shegirdi-removebg-preview.png" />შეგირდი
         </a>
         <nav>
-            <ul class="nav-links">
-              <li><a href="index.html">მთავარი</a></li>
-              <li><a href="./subjects.html" class="active">საგნები</a></li>
-              <li><a href="./tests.html">ტესტები</a></li>
-              <li><a href="./forum.html">ფორუმი</a></li>
-              <li><a href="./about.html">ჩვენ შესახებ</a></li>
-            </ul>
-          </nav>
+          <ul class="nav-links">
+            <li><a href="index.html">მთავარი</a></li>
+            <li><a href="./subjects.html">საგნები</a></li>
+            <li><a href="./tests.html" class="active">ტესტები</a></li>
+            <li><a href="./forum.html">ფორუმი</a></li>
+            <li><a href="./about.html">ჩვენ შესახებ</a></li>
+          </ul>
+        </nav>
         <div class="nav-buttons">
-           <!-- Auto-filled by script.js -->
-           <a href="./auth.html" class="btn btn-outline">შესვლა</a>
+          <a href="./auth.html" class="btn btn-outline">შესვლა</a>
+          <a href="./auth.html" class="btn btn-primary">რეგისტრაცია</a>
         </div>
       </div>
     </header>
 
-    <main class="container-wide section">
+    <main class="container section">
       
-      <!-- Breadcrumb -->
-      <div style="margin-bottom: 20px; color: var(--text-muted); font-size: 14px;">
-        <a href="subjects.html" style="color: var(--text-muted); text-decoration: none;">საგნები</a> / 
-        <a href="#" style="color: var(--text-muted); text-decoration: none;">მათემატიკა</a> / 
-        <span style="color: var(--primary); font-weight: 600;">კვადრატული განტოლებები</span>
+      <!-- უკან დაბრუნების ღილაკი -->
+      <a href="tests.html" style="text-decoration: none; color: var(--text-muted); display: flex; align-items: center; gap: 5px; margin-bottom: 20px;">
+        ← უკან ტესტებში
+      </a>
+
+      <!-- შედეგის ყუთი (გამოჩნდება ბოლოს) -->
+      <div id="result-box" class="animate-up">
+        <h2>შედეგი</h2>
+        <h1 id="score-display" style="color: white; font-size: 50px; margin: 10px 0;">0 / 10</h1>
+        <p id="coin-reward">💰 +0 Coins</p>
+        <button onclick="location.reload()" class="btn" style="background: white; color: var(--primary); margin-top: 15px;">თავიდან დაწყება</button>
       </div>
 
-      <div class="lesson-grid animate-up">
-        
-        <!-- LEFT COLUMN: Content (Text Only) -->
-        <div class="lesson-content">
-            <div class="lesson-text">
-                <h1>გაკვეთილი 1: კვადრატული ფუნქცია</h1>
-                <p>კვადრატული ფუნქცია ეწოდება ფუნქციას, რომელიც მოიცემა შემდეგი ფორმულით:</p>
-                
-                <div class="formula-box">
-                    y = ax² + bx + c
+      <div class="quiz-container animate-up delay-1">
+        <h1 style="text-align: center; margin-bottom: 40px;">მათემატიკა: შემაჯამებელი ტესტი</h1>
+
+        <form id="quiz-form">
+            <!-- კითხვა 1 -->
+            <div class="question-card">
+                <div class="question-title">1. კვადრატული ფუნქცია: y = x² - 4x + 3. რომელია მოცემული ფუნქციის გრაფიკის წვეროს კოორდინატები?</div>
+                <div class="options-grid">
+                    <label class="option-label"><input type="radio" name="q1" value="a"> ა) (2, -1)</label>
+                    <label class="option-label"><input type="radio" name="q1" value="b"> ბ) (-2, 15)</label>
+                    <label class="option-label"><input type="radio" name="q1" value="c"> გ) (4, 3)</label>
+                    <label class="option-label"><input type="radio" name="q1" value="d"> დ) (1, 0)</label>
                 </div>
+            </div>
 
-                <p>სადაც <strong>a, b</strong> და <strong>c</strong> ნამდვილი რიცხვებია, ხოლო <strong>a ≠ 0</strong>. ამ ფუნქციის გრაფიკი არის <strong>პარაბოლა</strong>.</p>
-                <br>
-                
-                <h3>პარაბოლის მიმართულება</h3>
-                <ul style="margin-left: 20px; margin-bottom: 20px;">
-                    <li>თუ <strong>a > 0</strong>, პარაბოლის შტოები მიმართულია ზემოთ.</li>
-                    <li>თუ <strong>a < 0</strong>, პარაბოლის შტოები მიმართულია ქვემოთ.</li>
-                </ul>
-
-                <h3>პარაბოლის წვეროს კოორდინატები</h3>
-                <p>პარაბოლის წვეროს აბსცისის (x₀) მოსაძებნად ვიყენებთ ფორმულას:</p>
-                <div class="formula-box">
-                    x₀ = -b / 2a
+            <!-- კითხვა 2 -->
+            <div class="question-card">
+                <div class="question-title">2. ირაციონალური განტოლება: √(x + 2) = 3 -ის ამონახსნია:</div>
+                <div class="options-grid">
+                    <label class="option-label"><input type="radio" name="q2" value="a"> ა) x = 7</label>
+                    <label class="option-label"><input type="radio" name="q2" value="b"> ბ) x = 1</label>
+                    <label class="option-label"><input type="radio" name="q2" value="c"> გ) x = 5</label>
+                    <label class="option-label"><input type="radio" name="q2" value="d"> დ) x = -2</label>
                 </div>
-                <p>ხოლო ორდინატის (y₀) საპოვნელად, ჩავსვამთ მიღებულ x-ს განტოლებაში.</p>
+            </div>
 
-                <br><hr><br>
-                
-                <div style="background: #fffbeb; padding: 20px; border-radius: 10px; border: 1px solid #fcd34d;">
-                    <strong>💡 რჩევა:</strong> ტესტის დაწყებამდე კარგად გაიაზრეთ ვიეტას თეორემა და დისკრიმინანტის ფორმულა.
+            <!-- კითხვა 3 -->
+            <div class="question-card">
+                <div class="question-title">3. გაამარტივეთ გამოსახულება: (a³ * a⁻⁵) / a² = ?</div>
+                <div class="options-grid">
+                    <label class="option-label"><input type="radio" name="q3" value="a"> ა) a⁰</label>
+                    <label class="option-label"><input type="radio" name="q3" value="b"> ბ) 1/a⁴</label>
+                    <label class="option-label"><input type="radio" name="q3" value="c"> გ) a⁻⁴</label>
+                    <label class="option-label"><input type="radio" name="q3" value="d"> დ) a⁴</label>
                 </div>
-
-                <!-- Action Button -->
-                <button onclick="finishLesson()" class="btn btn-primary" style="width: 100%; margin-top: 30px; padding: 18px; font-size: 18px;">
-                    ✅ მასალის დამუშავება & ტესტზე გადასვლა
-                </button>
-            </div>
-        </div>
-
-        <!-- RIGHT COLUMN: Syllabus -->
-        <aside class="syllabus-card">
-            <h3 style="margin-bottom: 20px;">კურსის სილაბუსი</h3>
-            
-            <div class="syllabus-item completed">
-                <div class="check-icon">✓</div>
-                <span>შესავალი</span>
-            </div>
-            
-            <div class="syllabus-item active">
-                <div class="check-icon"></div>
-                <span>1. კვადრატული ფუნქცია</span>
             </div>
 
-            <div class="syllabus-item">
-                <div class="check-icon"></div>
-                <span>2. დისკრიმინანტი</span>
+            <!-- კითხვა 4 -->
+            <div class="question-card">
+                <div class="question-title">4. არითმეტიკული პროგრესია: a₁ = 5 და d = 3. იპოვეთ მე-4 წევრი (a₄).</div>
+                <div class="options-grid">
+                    <label class="option-label"><input type="radio" name="q4" value="a"> ა) 11</label>
+                    <label class="option-label"><input type="radio" name="q4" value="b"> ბ) 14</label>
+                    <label class="option-label"><input type="radio" name="q4" value="c"> გ) 17</label>
+                    <label class="option-label"><input type="radio" name="q4" value="d"> დ) 15</label>
+                </div>
             </div>
 
-            <div class="syllabus-item">
-                <div class="check-icon"></div>
-                <span>3. ვიეტას თეორემა</span>
+            <!-- კითხვა 5 -->
+            <div class="question-card">
+                <div class="question-title">5. მართკუთხა სამკუთხედის კათეტებია 6 სმ და 8 სმ. იპოვეთ ჰიპოტენუზის სიგრძე.</div>
+                <div class="options-grid">
+                    <label class="option-label"><input type="radio" name="q5" value="a"> ა) 10 სმ</label>
+                    <label class="option-label"><input type="radio" name="q5" value="b"> ბ) 14 სმ</label>
+                    <label class="option-label"><input type="radio" name="q5" value="c"> გ) √28 სმ</label>
+                    <label class="option-label"><input type="radio" name="q5" value="d"> დ) 7 სმ</label>
+                </div>
             </div>
 
-            <div class="syllabus-item">
-                <div class="check-icon"></div>
-                <span>4. შემაჯამებელი ტესტი</span>
+            <!-- კითხვა 6 -->
+            <div class="question-card">
+                <div class="question-title">6. წრეწირის რადიუსია 5 სმ. იპოვეთ 180°-იანი რკალის სიგრძე.</div>
+                <div class="options-grid">
+                    <label class="option-label"><input type="radio" name="q6" value="a"> ა) 5π სმ</label>
+                    <label class="option-label"><input type="radio" name="q6" value="b"> ბ) 10π სმ</label>
+                    <label class="option-label"><input type="radio" name="q6" value="c"> გ) 25π სმ</label>
+                    <label class="option-label"><input type="radio" name="q6" value="d"> დ) 5 სმ</label>
+                </div>
             </div>
-        </aside>
 
+            <!-- კითხვა 7 -->
+            <div class="question-card">
+                <div class="question-title">7. გამოთვალეთ: sin²(40°) + cos²(40°).</div>
+                <div class="options-grid">
+                    <label class="option-label"><input type="radio" name="q7" value="a"> ა) 2</label>
+                    <label class="option-label"><input type="radio" name="q7" value="b"> ბ) 40</label>
+                    <label class="option-label"><input type="radio" name="q7" value="c"> გ) 1</label>
+                    <label class="option-label"><input type="radio" name="q7" value="d"> დ) sin(80°)</label>
+                </div>
+            </div>
+
+            <!-- კითხვა 8 -->
+            <div class="question-card">
+                <div class="question-title">8. სინუსების თეორემა: თუ a=10 და კუთხე α = 30°, რისი ტოლია შემოხაზული წრეწირის დიამეტრი (2R)?</div>
+                <div class="options-grid">
+                    <label class="option-label"><input type="radio" name="q8" value="a"> ა) 20</label>
+                    <label class="option-label"><input type="radio" name="q8" value="b"> ბ) 5</label>
+                    <label class="option-label"><input type="radio" name="q8" value="c"> გ) 10</label>
+                    <label class="option-label"><input type="radio" name="q8" value="d"> დ) 10√3</label>
+                </div>
+            </div>
+
+            <!-- კითხვა 9 -->
+            <div class="question-card">
+                <div class="question-title">9. რისი ტოლია log₂8 ?</div>
+                <div class="options-grid">
+                    <label class="option-label"><input type="radio" name="q9" value="a"> ა) 4</label>
+                    <label class="option-label"><input type="radio" name="q9" value="b"> ბ) 3</label>
+                    <label class="option-label"><input type="radio" name="q9" value="c"> გ) 16</label>
+                    <label class="option-label"><input type="radio" name="q9" value="d"> დ) 2</label>
+                </div>
+            </div>
+
+            <!-- კითხვა 10 -->
+            <div class="question-card">
+                <div class="question-title">10. A = {1, 3, 5, 7} და B = {5, 7, 9, 11}. იპოვეთ გაერთიანება A ∪ B.</div>
+                <div class="options-grid">
+                    <label class="option-label"><input type="radio" name="q10" value="a"> ა) {5, 7}</label>
+                    <label class="option-label"><input type="radio" name="q10" value="b"> ბ) {1, 3, 9, 11}</label>
+                    <label class="option-label"><input type="radio" name="q10" value="c"> გ) {1, 3, 5, 7, 9, 11}</label>
+                    <label class="option-label"><input type="radio" name="q10" value="d"> დ) {}</label>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-primary" onclick="submitQuiz()" style="width: 100%; padding: 20px; font-size: 18px;">ტესტის დასრულება</button>
+        </form>
       </div>
+
     </main>
 
     <footer>
@@ -228,25 +244,70 @@
     <script src="script.js"></script>
 
     <script>
-        // Check auth on load
-        document.addEventListener("DOMContentLoaded", function () {
-            const isLoggedIn = localStorage.getItem("shegirdi_user_logged_in");
-            if(isLoggedIn !== "true") {
-                // If not logged in, redirect to login
-                alert("გაკვეთილის სანახავად გაიარეთ ავტორიზაცია");
-                window.location.href = "auth.html";
+        // სწორი პასუხების გასაღები
+        const answers = {
+            q1: 'a', // (2, -1)
+            q2: 'a', // 7
+            q3: 'b', // 1/a^4
+            q4: 'b', // 14
+            q5: 'a', // 10
+            q6: 'a', // 5pi
+            q7: 'c', // 1
+            q8: 'a', // 20
+            q9: 'b', // 3
+            q10: 'c' // union
+        };
+
+        function submitQuiz() {
+            let score = 0;
+            const total = 10;
+            const form = document.getElementById('quiz-form');
+
+            // გადავამოწმოთ თითოეული კითხვა
+            for (let i = 1; i <= total; i++) {
+                const qName = 'q' + i;
+                const selected = form.elements[qName].value;
+                const correct = answers[qName];
+                
+                // ვიზუალური შეფერადება
+                const options = document.getElementsByName(qName);
+                
+                options.forEach(option => {
+                    const parent = option.parentElement; // label
+                    
+                    // გავასუფთაოთ ძველი სტილები
+                    parent.classList.remove('correct-answer', 'wrong-answer');
+
+                    // თუ ეს ოპცია სწორია
+                    if (option.value === correct) {
+                        parent.classList.add('correct-answer');
+                    }
+                    
+                    // თუ მომხმარებელმა მონიშნა და არასწორია
+                    if (option.checked && option.value !== correct) {
+                        parent.classList.add('wrong-answer');
+                    }
+                });
+
+                if (selected === correct) {
+                    score++;
+                }
             }
-        });
 
-        function finishLesson() {
-            const btn = document.querySelector('.lesson-text .btn');
-            btn.innerText = "გადადიხართ ტესტზე...";
-            btn.disabled = true;
+            // შედეგის გამოჩენა
+            const resultBox = document.getElementById('result-box');
+            const scoreDisplay = document.getElementById('score-display');
+            const coinReward = document.getElementById('coin-reward');
 
-            // Go to test after small delay
-            setTimeout(() => {
-                window.location.href = "math-test.html";
-            }, 800);
+            resultBox.style.display = 'block';
+            scoreDisplay.innerText = `${score} / ${total}`;
+            
+            // დავამატოთ Coins თუ ქულა 5-ზე მეტია
+            let coinsEarned = score * 5; 
+            coinReward.innerText = `💰 +${coinsEarned} Coins`;
+            
+            // ავიდეთ ზემოთ, რომ შედეგი გამოჩნდეს
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
   </body>
